@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="group-mentions-plugin"/>
+  <!-- add our web resources -->
+  <web-resource key="group-mentions-plugin-resources" name="group-mentions-plugin Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="group-mentions-plugin.css" location="/css/group-mentions-plugin.css"/>
+    <resource type="download" name="group-mentions-plugin.js" location="/js/group-mentions-plugin.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>group-mentions-plugin</context>
+  </web-resource>
+  <webwork1 key="groupmentions" name="groupmentions" i18n-name-key="groupmentions.name">
+    <description key="groupmentions.description">The groupmentions Plugin</description>
+    <actions>
+      <action name="com.tuzhykov.jira.webwork.MyActionClass" alias="MyActionClass">
+        <view name="success">/templates/groupmentions/myactionclass/success.vm</view>
+      </action>
+    </actions>
+  </webwork1>
+</atlassian-plugin>
